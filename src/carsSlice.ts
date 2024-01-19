@@ -1,18 +1,24 @@
-import { createSlice } from "@reduxjs/toolkit";
-import type { PayloadAction } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit';
 
-export interface IcarProps {
-  value: [];
+export interface IcarsProps {
+  cars: [];
 }
-
-const initialState: IcarProps = {
-  value: [],
+const initialState: IcarsProps = {
+  cars: [],
 };
 
 export const carsSlice = createSlice({
-  name: "cars",
+  name: 'cars',
   initialState,
-  reducers: {},
+  reducers: {
+    setCars(state, action) {
+      state.cars = action.payload;
+    },
+  },
 });
 
+export const { setCars } = carsSlice.actions;
+
 export default carsSlice.reducer;
+
+export const selectCars = (state: { cars: IcarsProps }) => state.cars.cars;

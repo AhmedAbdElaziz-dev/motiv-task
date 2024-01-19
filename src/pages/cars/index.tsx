@@ -1,91 +1,15 @@
 import CarCard from '../../components/CarCard';
+import { useGetCarsQuery } from '../../components/apis/car';
 import { ICarProps } from '../../components/models/car.model';
+import { cars } from './mocs';
 
 function Cars() {
-  const cars = [
-    {
-      model: 'Porsche 911',
-      type: 'Coupe',
-      carsNumber: 5,
-      personNumber: 2,
-      price: '200',
-    },
-    {
-      model: 'Porsche 911',
-      type: 'Coupe',
-      carsNumber: 5,
-      personNumber: 2,
-      price: '200',
-    },
-    {
-      model: 'Porsche 911',
-      type: 'Coupe',
-      carsNumber: 5,
-      personNumber: 2,
-      price: '200',
-    },
-    {
-      model: 'Porsche 911',
-      type: 'Coupe',
-      carsNumber: 5,
-      personNumber: 2,
-      price: '200',
-    },
-    {
-      model: 'Porsche 911',
-      type: 'Coupe',
-      carsNumber: 5,
-      personNumber: 2,
-      price: '200',
-    },
-    {
-      model: 'Porsche 911',
-      type: 'Coupe',
-      carsNumber: 5,
-      personNumber: 2,
-      price: '200',
-    },
-    {
-      model: 'Porsche 911',
-      type: 'Coupe',
-      carsNumber: 5,
-      personNumber: 2,
-      price: '200',
-    },
-    {
-      model: 'Porsche 911',
-      type: 'Coupe',
-      carsNumber: 5,
-      personNumber: 2,
-      price: '200',
-    },
-    {
-      model: 'Porsche 911',
-      type: 'Coupe',
-      carsNumber: 5,
-      personNumber: 2,
-      price: '200',
-    },
-    {
-      model: 'Porsche 911',
-      type: 'Coupe',
-      carsNumber: 5,
-      personNumber: 2,
-      price: '200',
-    },
-    {
-      model: 'Porsche 911',
-      type: 'Coupe',
-      carsNumber: 5,
-      personNumber: 2,
-      price: '200',
-    },
-  ];
+  const { data } = useGetCarsQuery();
   return (
     <div className="flex flex-wrap">
       {cars.map((car: ICarProps, index) => (
         <div className="m-10" key={index}>
-          <CarCard {...car} />
+          <CarCard {...(data || car)} />
         </div>
       ))}
     </div>
