@@ -1,17 +1,20 @@
 // import { Outlet } from "react-router-dom";
-import Sidebar from "../SideBar";
-import Header from "../Header";
-import { useState } from "react";
+import Sidebar from '../SideBar';
+import Header from '../Header';
+import { useState } from 'react';
+import { Outlet } from 'react-router-dom';
 
 function Layout() {
   const [isCollapse, setIsCollapse] = useState(false);
 
   return (
-    <div className="relative m-0 flex h-full w-full flex-col p-0">
+    <div className="w-full h-full bg-zinc-200">
       <Header />
-      <div className="m-0 flex h-full w-full p-0">
+      <div className="flex h-full w-full">
         <Sidebar isCollapse={isCollapse} setIsCollapse={setIsCollapse} />
-        <div className="border-box w-full">{/* <Outlet /> */}</div>
+        <div className=" w-full h-full mt-36 ml-52">
+          <Outlet />
+        </div>
       </div>
     </div>
   );
